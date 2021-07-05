@@ -8,8 +8,6 @@ const expressions = {
     textarea: /^[a-zA-Z0-9_.+--ZÀ-ÿ\s]{1,80}$/
 }
 
-module.exports = expressions;
-
 function validateEmail(email) {
     return expressions.mail.test(email);
 }
@@ -18,4 +16,5 @@ function validateName(name) {
     return expressions.name.test(name);
 }
 
+module.exports = expressions;
 module.exports = { validateEmail, validateName };
