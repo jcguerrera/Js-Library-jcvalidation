@@ -9,7 +9,7 @@ export const validationItems = {
     select: false
 }
 
-const expressionss = {
+const expressions = {
     user: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     password: /^.{4,12}$/, // 4 a 12 digitos.
@@ -19,10 +19,10 @@ const expressionss = {
     textarea: /^[a-zA-Z0-9_.+--ZÀ-ÿ\s]{1,80}$/
 }
 
-module.exports = expressionss;
+module.exports = expressions;
 
 function validateEmail(email) {
-    return expressionss.mail.test(email);
+    return expressions.mail.test(email);
 }
 
 module.exports = validateEmail;
@@ -34,15 +34,15 @@ export const otherInputs = (inputs) => {
             var tagName = input.getAttribute('jc-validation');
             console.log(tagName);
             if (tagName == 'name') {
-                checkFields(expressionss[tagName], e.target, tagName)
+                checkFields(expressions[tagName], e.target, tagName)
             }
 
             else if (tagName == 'mail') {
-                checkFields(expressionss[tagName], e.target, tagName)
+                checkFields(expressions[tagName], e.target, tagName)
             }
 
             else if (tagName == 'date') {
-                checkFields(expressionss[tagName], e.target, tagName)
+                checkFields(expressions[tagName], e.target, tagName)
             }
         })
     })
@@ -54,7 +54,7 @@ export const checkTextareas = (text) => {
             var tagName = textarea.getAttribute('jc-validation');
             console.log(tagName);
             if (tagName == 'textarea') {
-                checkFields(expressionss[tagName], e.target, tagName)
+                checkFields(expressions[tagName], e.target, tagName)
             }
         })
     })
@@ -81,7 +81,7 @@ export const checkSelect = (select) => {
     })
 }
 
-export const checkFields = (expressionss, e, field) => {
+export const checkFields = (expressions, e, field) => {
 
     const errors = {
         name: 'Invalid Name, Check the correct format or complete the field',
@@ -90,7 +90,7 @@ export const checkFields = (expressionss, e, field) => {
         textarea: 'Invalid comment',
         select: 'choice an option'
     }
-    if (expressionss.test(e.value)) {
+    if (expressions.test(e.value)) {
         document.getElementById(`message_${field}`).innerHTML = 'correct field'
         validationItems[field] = true;
         return true
