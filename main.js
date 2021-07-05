@@ -7,8 +7,6 @@ otherInputs(inputs);
 checkTextareas(textarea);
 checkSelect(select);
 
-
-
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log(form.getAttributeNames());

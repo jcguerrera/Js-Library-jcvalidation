@@ -1,4 +1,10 @@
+// TODO: Delete this line
 import { insertAfter } from "./ejemplo.js";
+
+// TODO: Import expressions from another file
+// import { expressions } from "./expression.js";
+// const expressions = require('./expression.js');
+
 export var form = document.getElementById('form')
 
 export const validationItems = {
@@ -9,7 +15,7 @@ export const validationItems = {
     select: false
 }
 
-const expressions = {
+export const expressions = {
     user: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     password: /^.{4,12}$/, // 4 a 12 digitos.
@@ -19,13 +25,6 @@ const expressions = {
     textarea: /^[a-zA-Z0-9_.+--ZÀ-ÿ\s]{1,80}$/
 }
 
-module.exports = expressions;
-
-function validateEmail(email) {
-    return expressions.mail.test(email);
-}
-
-module.exports = validateEmail;
 export const otherInputs = (inputs) => {
     console.log(inputs);
     inputs.forEach((input) => {
@@ -82,7 +81,6 @@ export const checkSelect = (select) => {
 }
 
 export const checkFields = (expressions, e, field) => {
-
     const errors = {
         name: 'Invalid Name, Check the correct format or complete the field',
         mail: 'Invalid Mail, Check the correct format (@/.)or complete the field with a domain',

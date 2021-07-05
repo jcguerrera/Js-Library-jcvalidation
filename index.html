@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Taller</title>
+    <title>Form Homework</title>
 </head>
+
 <body>
     <h1>Form</h1>
     <div>
-        <form id="form" jc-validation = 'true'>
+        <form id="form" jc-validation='true'>
             <label>Mail</label>
-            <input type="mail" id="mail" name="mail" placeholder="mail" jc-validation = 'mail'>
+            <input type="mail" id="mail" name="mail" placeholder="mail" jc-validation='mail'>
             <p id="message_mail"></p>
             <label>Name</label>
-            <input type="text" id="name" name="name" placeholder="name" jc-validation = 'name'>
+            <input type="text" id="name" name="name" placeholder="name" jc-validation='name'>
             <p id="message_name"></p>
             <label>Date</label>
-            <input type="text" name="date" id="date" placeholder="Date" jc-validation = 'date'>
+            <input type="text" name="date" id="date" placeholder="Date" jc-validation='date'>
             <p id="message_date"></p><br>
             <label>Comment</label>
-            <textarea name="textarea" id="textarea" jc-validation = 'textarea'></textarea>
+            <textarea name="textarea" id="textarea" jc-validation='textarea'></textarea>
             <p id="message_textarea"></p><br>
             <select name="select" id="job" jc-validation="select">
                 <option value="" jc-validation="frontend">Pick an Option</option>
@@ -30,10 +32,11 @@
                 <option value="qae" jc-validation="qae">QA enineer</option>
             </select>
             <p id="message_select"></p><br>
-            <button id="button">summit</button>
+            <button id="button">submit</button>
         </form>
     </div>
     <br>
     <script type="module" src="main.js"></script>
 </body>
+
 </html>
