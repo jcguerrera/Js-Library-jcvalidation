@@ -1,4 +1,4 @@
-const expressionss = {
+const expressions = {
     user: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     password: /^.{4,12}$/, // 4 a 12 digitos.
@@ -8,14 +8,14 @@ const expressionss = {
     textarea: /^[a-zA-Z0-9_.+--ZÀ-ÿ\s]{1,80}$/
 }
 
-module.exports = expressionss;
+module.exports = expressions;
 
 function validateEmail(email) {
-    return expressionss.mail.test(email);
+    return expressions.mail.test(email);
 }
 
 function validateName(name) {
-    return expressionss.name.test(name);
+    return expressions.name.test(name);
 }
 
 module.exports = { validateEmail, validateName };
