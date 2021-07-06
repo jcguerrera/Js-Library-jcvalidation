@@ -16,5 +16,13 @@ function validateName(name) {
     return expressions.name.test(name);
 }
 
+function validateDate(date){
+    return expressions.date.test(date);
+}
+
+function validateArea(textarea){
+    return expressions.textarea.test(textarea);
+}
+
 module.exports = expressions;
-module.exports = { validateEmail, validateName };
+module.exports = { validateEmail, validateName, validateDate, validateArea };
