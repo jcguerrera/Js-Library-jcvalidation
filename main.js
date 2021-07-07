@@ -1,23 +1,30 @@
-import { otherInputs, checkTextareas, checkSelect, validationItems } from "./app.js";
+import { otherInputs, checkTextareas, checkSelect, validationItems, checkForm } from "./app.js";
 var form = document.getElementById('form')
 var inputs = document.querySelectorAll('input');
 var textarea = document.querySelectorAll('textarea');
 var select = document.querySelectorAll('select');
-otherInputs(inputs);
-checkTextareas(textarea);
-checkSelect(select);
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    console.log(form.getAttributeNames());
-    if (validationItems.mail && validationItems.name && validationItems.date && validationItems.textarea && validationItems.select) {
-        alert('enviado correctamente')
-        form.reset();
-        for (let i in validationItems) {
-            document.getElementById(`message_${i}`).innerHTML = ''
+//toast -> messages
+
+if(checkForm(document)){
+    otherInputs(inputs);
+    checkTextareas(textarea);
+    checkSelect(select);
+    form.addEventListener('submit', (e) => {
+        console.log(document.forms[0]);
+        e.preventDefault();
+        
+        if (validationItems.mail && validationItems.text && validationItems.date && validationItems.textarea && validationItems.select) {
+            alert('enviado correctamente')
+            form.reset();
+            for (let i in validationItems) {
+                document.getElementById(`message_${i}`).innerHTML = ''
+            }
+    
+        } else {
+            alert('Complete Fields')
         }
+    })
+}
 
-    } else {
-        alert('complete')
-    }
-})
+

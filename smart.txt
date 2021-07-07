@@ -1,0 +1,8 @@
+Objetivos Smart
+--------------------
+* Al termino de la semana correspondiente debo complementar y finalizar la librería solicitada en Js con el fin de mejorar y afianzar conocimientos en el lenguaje 
+* Aprender elementos y funcionalizades de js como lo son patrones manejados en js, buenas prácticas e involucrar diferentes tipos de funciones (async, sync)
+y mejorar respecto al manejo del dom, promesas etc.Realizar los proyectos quincenales propuestos por los integrantes de Front-End para fortalecer mis conocimientos
+de JavaScript, ademas  
+* En un mes (4/5 semanas), aprender y utilizar jest como herramienta QA mediante cada uno de los
+los talleres o retos propuestos y el curso propuesto por Playvox, para validar y probar cada uno de mis desarrollos.

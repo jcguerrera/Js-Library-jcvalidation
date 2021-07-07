@@ -79,6 +79,10 @@
   "devDependencies": {
     "jest": "^27.0.6"
   },
+  "jest": {
+    "verbose": true,
+    "transform": {}
+  },
   "scripts": {
     "test": "jest"
   },
