@@ -1,30 +1,33 @@
-import { otherInputs, checkTextareas, checkSelect, validationItems, checkForm } from "./app.js";
-var form = document.getElementById('form')
-var inputs = document.querySelectorAll('input');
-var textarea = document.querySelectorAll('textarea');
-var select = document.querySelectorAll('select');
+import { validationItems, validateInputs, validateTextareas, validateSelects, validateAttribute } from "./app.js";
 
 //toast -> messages
-
-if(checkForm(document)){
-    otherInputs(inputs);
-    checkTextareas(textarea);
-    checkSelect(select);
-    form.addEventListener('submit', (e) => {
-        console.log(document.forms[0]);
-        e.preventDefault();
-        
-        if (validationItems.mail && validationItems.text && validationItems.date && validationItems.textarea && validationItems.select) {
-            alert('enviado correctamente')
-            form.reset();
-            for (let i in validationItems) {
-                document.getElementById(`message_${i}`).innerHTML = ''
+const validateForms = () =>{
+    if(validateAttribute(document)){
+        var form = document.querySelector('form')
+        var inputs = document.querySelectorAll('input');
+        var textarea = document.querySelectorAll('textarea');
+        var select = document.querySelectorAll('select');
+        console.log(form);
+        validateInputs(inputs);
+        validateTextareas(textarea);
+        validateSelects(select);
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (validationItems.mail && validationItems.text && validationItems.date && validationItems.textarea && validationItems.select) {
+                alert('Success')
+                form.reset();
+                for (let i in validationItems) {
+                    document.getElementById(`message_${i}`).innerHTML = ''
+                }
+            } else {
+                alert('Complete Fields')
             }
-    
-        } else {
-            alert('Complete Fields')
-        }
-    })
+        })
+    }
 }
+
+validateForms();
+
+
 
 

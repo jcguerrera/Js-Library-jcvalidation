@@ -24,5 +24,5 @@ function validateArea(textarea){
     return expressions.textarea.test(textarea);
 }
 
-module.exports = expressions;
-module.exports = { validateEmail, validateText, validateDate, validateArea };
+
+export { validateEmail, validateText, validateDate, validateArea };

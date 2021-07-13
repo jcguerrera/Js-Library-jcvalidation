@@ -1,13 +1,5 @@
 // TODO: Delete this line
-import { insertAfter } from "./ejemplo.js";
-
-// TODO: Import expressions from another file
-// import { expressions } from "./expression.js";
-// const expressions = require('./expression.js');
-
-export var form = document.getElementById('form')
-
-export const validationItems = {
+const validationItems = {
     text: false,
     mail: false,
     date: false,
@@ -15,7 +7,7 @@ export const validationItems = {
     select: false
 }
 
-export const expressions = {
+const expressions = {
     user: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     text: /^[a-zA-ZÀ-ÿ\s]{7,40}$/, // Letras y espacios, pueden llevar acentos.
     password: /^.{4,12}$/, // 4 a 12 digitos.
@@ -25,45 +17,39 @@ export const expressions = {
     textarea: /^[a-zA-Z0-9_.+--ZÀ-ÿ\s]{1,80}$/
 }
 
-export const otherInputs = (inputs) => {
-    console.log(inputs);
+const validateInputs = (inputs) => {
+    //inicializar-inputs
     inputs.forEach((input) => {
         input.addEventListener('blur', function (e) {
             var tagName = input.getAttribute('jc-validation');
-            console.log(tagName);
             if (tagName == 'text' && e.target.type == 'text') {
-                checkFields(expressions[tagName], e.target, tagName)
+                validateFields(expressions[tagName], e.target, tagName)
             }
             else if (tagName == 'mail' && e.target.type == 'text') {
-                checkFields(expressions[tagName], e.target, tagName)
+                validateFields(expressions[tagName], e.target, tagName)
             }
-
             else if (tagName == 'date'&& e.target.type == 'date') {
-                checkFields(expressions[tagName], e.target, tagName)
+                validateFields(expressions[tagName], e.target, tagName)
             }
         })
     })
 }
 
-export const checkTextareas = (text) => {
+const validateTextareas = (text) => {
     text.forEach((textarea) => {
         textarea.addEventListener('blur', function (e) {
             var tagName = textarea.getAttribute('jc-validation');
-            console.log(e.target.type);
             if (tagName == 'textarea' && e.target.type == 'textarea') {
-                checkFields(expressions[tagName], e.target, tagName)
+                validateFields(expressions[tagName], e.target, tagName)
             }
         })
     })
 }
 
-export const checkSelect = (select) => {
-
+const validateSelects = (select) => {
     select.forEach((sel) => {
         sel.addEventListener('blur', function (e) {
             let tagName = sel.getAttribute('jc-validation');
-            console.log(e.target.type);
-            console.log(tagName);
             if (tagName == 'select') {
                 if (e.target.value == "") {
                     alert('Pick an option')
@@ -78,7 +64,7 @@ export const checkSelect = (select) => {
     })
 }
 
-export const checkFields = (expressions, e, field) => {
+const validateFields = (expressions, e, field) => {
     const errors = {
         text: 'Invalid Name, Check the correct format or complete the field',
         mail: 'Invalid Mail, Check the correct format (@/.)or complete the field with a domain',
@@ -97,14 +83,14 @@ export const checkFields = (expressions, e, field) => {
     }
 }
 
-export function checkForm(document) {
+const validateAttribute = (document) => {
     var number = document.forms.length;
     for (let i = 0; i < number; i++) {
         if (document.forms[i].hasAttribute('jc-validation')) {
-            document.querySelectorAll('form[jc-validation] input, form[jc-validation] textarea, form[jc-validation] select');
-            document.querySelectorAll('textarea[jc-validation]');
             return true
         }
         return false
     }
 }
+
+export { validationItems, validateInputs, validateTextareas, validateSelects, validateAttribute };

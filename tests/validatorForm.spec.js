@@ -1,4 +1,5 @@
-const { validateEmail, validateText, validateDate, validateArea } = require('../expression');
+// const { validateEmail, validateText, validateDate, validateArea } = require('../expression');
+import { validateEmail, validateText, validateDate, validateArea } from '../expression.mjs'
 
 test('Regex Email', () => {
     expect(validateEmail('younger@gmail.com')).toBe(true);
@@ -15,7 +16,6 @@ test('Regex text', () => {
 test('Regex text', () => {
     expect(validateText('Juan32')).toBe(false);
 });
-
 
 test('Regex date', () => {
     expect(validateDate('2021-07-01')).toBe(true);
